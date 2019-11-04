@@ -1,6 +1,9 @@
 # opensupports
 My Docker image for OpenSupports
 ## Manual extra steps
+- Start MySQL manually
+
+`/etc/init.d/mysql start`
 - Install vim
 
 `apt update && apt install -y vim`
