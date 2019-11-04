@@ -1,8 +1,12 @@
 # opensupports
 My Docker image for OpenSupports
 ## Manual extra steps
+- Install vim
+
+`apt update && apt install -y vim`
 - In /etc/apache2/apache2.conf, set AllowOverride to All for /var/www/
 - Manually create a new MySQL user:
+
 ```
 mysql
 USE mysql
