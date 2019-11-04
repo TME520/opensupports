@@ -6,17 +6,20 @@ ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 
-# Install required packages
-# RUN apt-get update && \
-#     apt-get install -y apache2 mysql-server mariadb-server php php-mysql && \
-#     apt-get clean && \
-#     rm -rf /var/lib/apt/lists/*
+# Copy files from local fs to Docker image
+COPY ./opensupports_v4.5.0.zip /tmp/
+COPY index.html /var/www/html/
 
-RUN apt update
-RUN apt install -y apache2 mysql-server mariadb-server php php-mysql
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y apache2 mysql-server mariadb-server php php-mysql unzip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Activate PDO for PHP
 RUN phpenmod pdo_mysql
+
+RUN unzip /tmp/opensupports_v4.5.0.zip
 
 EXPOSE 80
 
