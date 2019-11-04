@@ -1,5 +1,5 @@
-FROM: ubuntu
-MAINTAINER: TME520 version: 0.1
+FROM ubuntu
+MAINTAINER TME520 version: 0.1
 
 # Setting environment variables
 ENV APACHE_RUN_USER www-data
